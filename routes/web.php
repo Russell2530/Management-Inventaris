@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Product;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
@@ -7,8 +9,10 @@ use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = Product::all();
+    return view('welcome', compact('products'));
 });
+Route::resource('form', FormController::class);
 
 // Dashboard diarahkan ke ProductController@index
 Route::get('/dashboard', [DashboardController::class, 'index'])

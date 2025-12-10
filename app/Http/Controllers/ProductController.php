@@ -73,7 +73,7 @@ class ProductController extends Controller
             'gambar'      => $gambarPath,
         ]);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil diperbarui!');
+        return redirect()->route('dashboard')->with('success', 'Produk berhasil diperbarui!');
     }
 
     // Hapus produk
